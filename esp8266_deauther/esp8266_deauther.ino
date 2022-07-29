@@ -10,6 +10,8 @@ extern "C" {
   #include "user_interface.h"
 }
 
+#include "FlipperZeroWiFiDeauthModuleDefines.h"
+
 #include "EEPROMHelper.h"
 
 #include "src/ArduinoJson-v5.13.5/ArduinoJson.h"
@@ -20,6 +22,7 @@ extern "C" {
 #error Please upgrade/downgrade ArduinoJSON library to version 5!
 #endif // if ARDUINOJSON_VERSION_MAJOR != 5
 
+#include "A_config.h"
 #include "oui.h"
 #include "language.h"
 #include "functions.h"
@@ -30,7 +33,6 @@ extern "C" {
 #include "Attack.h"
 #include "CLI.h"
 #include "DisplayUI.h"
-#include "A_config.h"
 
 #include "led.h"
 
@@ -58,8 +60,14 @@ void setup() {
     randomSeed(os_random());
 
     // start serial
-    Serial.begin(115200);
-    Serial.println();
+    Serial.begin(SERIAL_BAUD); // 115200 921600
+    while (!Serial) {
+      ; // wait for serial port to connect
+    }
+#ifdef FLIPPERZERO_SERIAL_OUTPUT
+    Serial.write(MODULE_CONTEXT_INITIALIZATION);
+#endif
+    prntln();
 
     // start SPIFFS
     prnt(SETUP_MOUNT_SPIFFS);
@@ -129,9 +137,12 @@ void setup() {
     if (settings::getCLISettings().enabled) {
         cli.enable();
     } else {
-        prntln(SETUP_SERIAL_WARNING);
-        Serial.flush();
-        Serial.end();
+        #ifdef FLIPPERZERO_MODULE_SEQUOIA
+        #else
+            prntln(SETUP_SERIAL_WARNING);
+            Serial.flush();
+            Serial.end();
+        #endif
     }
 
     // start access point/web interface

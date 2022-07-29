@@ -87,7 +87,10 @@ void DisplayUI::setup() {
             scan.start(SCAN_MODE_SNIFFER, 0, SCAN_MODE_OFF, 0, false, wifi_channel);
             mode = DISPLAY_MODE::PACKETMONITOR;
         });
+#ifdef FLIPPERZERO_MODULE_SEQUOIA
+#else
         addMenuNode(&mainMenu, D_CLOCK, &clockMenu); // CLOCK
+#endif
 
 #ifdef HIGHLIGHT_LED
         addMenuNode(&mainMenu, D_LED, [this]() {     // LED

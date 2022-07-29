@@ -250,64 +250,109 @@ bool s2b(String input) {
 
 // ===== PRINT FUNCTIONS ===== //
 void prnt(const String s) {
+#ifdef FLIPPERZERO_SERIAL_OUTPUT
+#else
     Serial.print(s);
+#endif
 }
 
 void prnt(const bool b) {
+#ifdef FLIPPERZERO_SERIAL_OUTPUT
+#else
     Serial.print(b2s(b));
+#endif
 }
 
 void prnt(const char c) {
+#ifdef FLIPPERZERO_SERIAL_OUTPUT
+#else
     Serial.print(c);
+#endif
 }
 
 void prnt(const char* ptr) {
+#ifdef FLIPPERZERO_SERIAL_OUTPUT
+#else
     Serial.print(FPSTR(ptr));
+#endif
 }
 
 void prnt(const char* ptr, int len) {
+#ifdef FLIPPERZERO_SERIAL_OUTPUT
+#else
     for (int i = 0; i<len; i++) prnt(ptr[i]);
+#endif
 }
 
 void prnt(const int i) {
+#ifdef FLIPPERZERO_SERIAL_OUTPUT
+#else
     Serial.print((String)i);
+#endif
 }
 
 void prnt(const uint32_t i) {
+#ifdef FLIPPERZERO_SERIAL_OUTPUT
+#else
     Serial.printf("%u", i);
+#endif
 }
 
 void prntln() {
+#ifdef FLIPPERZERO_SERIAL_OUTPUT
+#else
     Serial.println();
+#endif
 }
 
 void prntln(const String s) {
+#ifdef FLIPPERZERO_SERIAL_OUTPUT
+#else
     Serial.println(s);
+#endif
 }
 
 void prntln(const bool b) {
+#ifdef FLIPPERZERO_SERIAL_OUTPUT
+#else
     Serial.println(b2s(b));
+#endif
 }
 
 void prntln(const char c) {
+#ifdef FLIPPERZERO_SERIAL_OUTPUT
+#else
     Serial.println(c);
+#endif
 }
 
 void prntln(const char* ptr) {
+#ifdef FLIPPERZERO_SERIAL_OUTPUT
+#else
     Serial.println(FPSTR(ptr));
+#endif
 }
 
 void prntln(const char* ptr, int len) {
+#ifdef FLIPPERZERO_SERIAL_OUTPUT
+#else
     for (int i = 0; i<len; i++) prnt(ptr[i]);
     prntln();
+#endif
 }
 
 void prntln(const int i) {
+#ifdef FLIPPERZERO_SERIAL_OUTPUT
+#else
     Serial.println((String)i);
+#endif
 }
 
 void prntln(const uint32_t i) {
+#ifdef FLIPPERZERO_SERIAL_OUTPUT
+#else
     Serial.printf("%u\r\n", i);
+#endif
 }
 
 /* ===== WiFi ===== */

@@ -6,6 +6,8 @@
 #define DEBUG_PORT Serial
 #define DEBUG_BAUD 115200
 
+#define SERIAL_BAUD DEBUG_BAUD
+
 #define DEFAULT_ESP8266
 
 // #define NODEMCU
@@ -44,6 +46,7 @@
 // #define DSTIKE_DEAUTHER_WATCH_V2
 // #define DSTIKE_DEAUTHER_MINI
 // #define DSTIKE_DEAUTHER_MINI_EVO
+#define FLIPPERZERO_MODULE_SEQUOIA
 
 // #define LYASI_7W_E27_LAMP
 // #define AVATAR_5W_E14_LAMP
@@ -375,6 +378,38 @@
  #define LED_MY92_CH_BRIGHTNESS 3
  #define LED_MY92_MODEL MY92XX_MODEL_MY9291
 
+ #elif defined(FLIPPERZERO_MODULE_SEQUOIA)
+
+// // ===== LED ===== //
+//   #define LED_NEOPIXEL_GRB
+//   #define LED_NUM 1
+//   #define LED_NEOPIXEL_PIN 15
+
+// ===== DISPLAY ===== //
+  #define FLIPPERZERO_SERIAL_OUTPUT
+  #define DISPLAY_TEXT "FlipperZero Module"
+
+  //#define SH1106_I2C
+  // #define I2C_ADDR 0x3C
+  // #define I2C_SDA 4
+  // #define I2C_SCL 5
+  
+// ===== BUTTONS ===== //
+  #define BUTTON_UP 14
+  #define BUTTON_DOWN 12
+  #define BUTTON_A 13
+  #define BUTTON_B 15
+
+// ===== EXTRA ===== //
+  #undef ENABLE_DEBUG
+  #define CLI_ENABLED false
+  #define CLI_ECHO false
+  #ifdef FLIPPERZERO_SERIAL_BAUD
+    #define SERIAL_BAUD FLIPPERZERO_SERIAL_BAUD
+  #else
+    #define SERIAL_BAUD 115200
+  #endif
+
 #elif defined(DEFAULT_ESP8266) || defined(NODEMCU) || defined(WEMOS_D1_MINI) || defined(DSTIKE_USB_DEAUTHER) || defined(DSTIKE_NODEMCU_07) || defined(DSTIKE_DEAUTHER_V1) || defined(DSTIKE_DEAUTHER_V2) || defined(DSTIKE_DEAUTHER_V3)
 // ===== LED ===== //
 // #define LED_DIGITAL
@@ -539,7 +574,7 @@
   #define FLIP_DIPLAY false
 #endif /* ifndef FLIP_DIPLAY */
 
-#if !defined(SSD1306_I2C) && !defined(SSD1306_SPI) && !defined(SH1106_I2C) && !defined(SH1106_SPI)
+#if !defined(SSD1306_I2C) && !defined(SSD1306_SPI) && !defined(SH1106_I2C) && !defined(SH1106_SPI) && !defined(FLIPPERZERO_SERIAL_OUTPUT)
   #define SSD1306_I2C
   #define USE_DISPLAY false
 #else /* if !defined(SSD1306_I2C) && !defined(SSD1306_SPI) && !defined(SH1106_I2C) && !defined(SH1106_SPI) */
