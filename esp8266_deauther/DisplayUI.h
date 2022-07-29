@@ -22,8 +22,6 @@
 #elif defined(SH1106_SPI)
   #include <SPI.h>
   #include "src/esp8266-oled-ssd1306-4.1.0/SH1106Spi.h"
-#elif defined(FLIPPERZERO_SERIAL_OUTPUT)
-  #include "src/flipperzero/FlipperZeroSerial.h"
 #endif /* if defined(SSD1306_I2C) */
 
 #ifdef RTC_DS3231
@@ -101,8 +99,6 @@ class DisplayUI {
         SH1106Wire display = SH1106Wire(I2C_ADDR, I2C_SDA, I2C_SCL);
 #elif defined(SH1106_SPI)
         SH1106Spi display = SH1106Spi(SPI_RES, SPI_DC, SPI_CS);
-#elif defined(FLIPPERZERO_SERIAL_OUTPUT)
-        FlipperZeroSerial display = FlipperZeroSerial();
 #endif /* if defined(SSD1306_I2C) */
 
         const uint8_t maxLen           = 18;
