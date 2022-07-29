@@ -5,6 +5,7 @@
  
  This module is full analog of DSTIKE Deauther
  See this video below to get an idea how it's working.
+ 
  [DSTIKE Deauther](https://www.youtube.com/watch?v=9zA6AB7qYe8)
 
 
@@ -40,13 +41,13 @@
 
 # How to
 
-Flash [firmware](https://github.com/SequoiaSan/FlipperZero-WiFi-Scanner_Module-ESP8266/tree/main/FlipperZero-WiFi-Scanner_Module) on Wemos D1 Mini
+Flash [firmware](https://github.com/SequoiaSan/FlipperZero-Wifi-ESP8266-Deauther-Module/tree/FlipperZero-Module-v2/esp8266_deauther) on Wemos D1 Mini
 
-Compile firmware for FlipperZero with new [application](https://github.com/SequoiaSan/FlipperZero-WiFi-Scanner_Module-ESP8266/tree/main/applications/wifi_scanner)
+Compile firmware for FlipperZero with new [application](https://github.com/SequoiaSan/FlipperZero-Wifi-ESP8266-Deauther-Module/tree/FlipperZero-Module-v2/FlipperZeroModule/FlipperZero-ESP8266-Deauth-App)
 
 Use next schematics to solder the WiFi Scanner board for FlipperZero
 
-![image](https://github.com/SequoiaSan/FlipperZero-WiFi-Scanner_Module-ESP8266/blob/main/rep_images/Schematics_1.jpg?raw=true)
+![image](https://github.com/SequoiaSan/FlipperZero-Wifi-ESP8266-Deauther-Module/blob/FlipperZero-Module-v2/FlipperZeroModule/rep_images/Schematics_1.jpg?raw=true)
 
 # How to add new application on FlipperZero
 
@@ -64,7 +65,7 @@ FIRMWARE_APPS = {
         "archive",
         
         <b># My Apps</b>
-        <b>my_apps",</b>
+        <b>"my_apps",</b>
         
         # Settings
         "passport",
@@ -99,7 +100,7 @@ App(
 If you have issues with unintended app restart then try to add an AMS1117 voltage regulator on 5V to drop it to 3V3 and feed the module.
 *I would recomend do that*
 
-![image](https://github.com/SequoiaSan/FlipperZero-WiFi-Scanner_Module-ESP8266/blob/main/rep_images/Schematics_2.jpg?raw=true)
+![image](https://github.com/SequoiaSan/FlipperZero-Wifi-ESP8266-Deauther-Module/blob/FlipperZero-Module-v2/FlipperZeroModule/rep_images/Schematics_2.jpg?raw=true)
 
 
 
