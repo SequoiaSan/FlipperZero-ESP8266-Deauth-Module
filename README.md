@@ -1,3 +1,109 @@
+# (WIP)
+
+# FlipperZero WiFi ESP8266 Deauther
+ WiFi Deauther Module for FlipperZero based on ESP8266
+ 
+ This module is full analog of DSTIKE Deauther
+ See this video below to get an idea how it's working.
+ [DSTIKE Deauther](https://www.youtube.com/watch?v=9zA6AB7qYe8)
+
+
+ FlipperZero Module link below
+ 
+ [Work demonstration]()
+ 
+ [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/xxx/0.jpg)](https://www.youtube.com/watch?v=xxx)
+ 
+ # Controls
+  * UP - move list up by one
+  * UP (hold) - continuously move list up by one
+  * DOWN - move list down by one
+  * DOWN (hold) - continuously move list down by one
+  * OK - select
+  * BACK - one menu back
+  * BACK (long press) - exit app
+
+ 
+ # Help project
+ Feel free to contact me with your proposals and improvements to this projects.
+ 
+ Fork and improve!
+ 
+ Donate if you want to support author ![ua](https://icons.iconarchive.com/icons/wikipedia/flags/16/UA-Ukraine-Flag-icon.png)
+ 
+ [DeStream](https://destream.net/live/SequoiaSan/donate) or [Buy Me a Coffee](https://www.buymeacoffee.com/sequoiasan)
+ 
+ # What do you need
+
+ 1. Wemos D1 Mini (or Mini Pro) or analog
+ 2. FlipperZero
+
+# How to
+
+Flash [firmware](https://github.com/SequoiaSan/FlipperZero-WiFi-Scanner_Module-ESP8266/tree/main/FlipperZero-WiFi-Scanner_Module) on Wemos D1 Mini
+
+Compile firmware for FlipperZero with new [application](https://github.com/SequoiaSan/FlipperZero-WiFi-Scanner_Module-ESP8266/tree/main/applications/wifi_scanner)
+
+Use next schematics to solder the WiFi Scanner board for FlipperZero
+
+![image](https://github.com/SequoiaSan/FlipperZero-WiFi-Scanner_Module-ESP8266/blob/main/rep_images/Schematics_1.jpg?raw=true)
+
+# How to add new application on FlipperZero
+
+1. Copy [folders](https://github.com/SequoiaSan/FlipperZero-WiFi-Scanner_Module-ESP8266/tree/main/FlipperZero-WiFi-Scanner-App) and paste directly into [root folder of original firmware](https://github.com/flipperdevices/flipperzero-firmware).
+2. Add new applications category in [/fbt_options.py](https://github.com/flipperdevices/flipperzero-firmware/blob/dev/fbt_options.py) my_apps for example
+<pre>
+FIRMWARE_APPS = {
+    "default": (
+        "crypto_start",
+        # Svc
+        "basic_services",
+        # Apps
+        "basic_apps",
+        "updater_app",
+        "archive",
+        
+        <b># My Apps</b>
+        <b>my_apps",</b>
+        
+        # Settings
+        "passport",
+        "system_settings",
+        "about",
+        # Plugins
+        "basic_plugins",
+        # Debug
+        "debug_apps",
+    ),
+    "unit_tests": (
+        "basic_services",
+        "unit_tests",
+    ),
+}
+</pre>
+3. Add new apps category and our app into [applications/meta/application.fam](https://github.com/flipperdevices/flipperzero-firmware/blob/dev/applications/meta/application.fam)
+```
+App(
+    appid="my_apps",
+    name="My applications for main menu",
+    apptype=FlipperAppType.METAPACKAGE,
+    provides=[
+        "esp8266_deauth",
+    ],
+)
+```
+4. Compile with any [method](https://github.com/flipperdevices/flipperzero-firmware/blob/dev/ReadMe.md#compile-everything-1) provided by FlipperZero dev team
+
+# Issues
+
+If you have issues with unintended app restart then try to add an AMS1117 voltage regulator on 5V to drop it to 3V3 and feed the module.
+*I would recomend do that*
+
+![image](https://github.com/SequoiaSan/FlipperZero-WiFi-Scanner_Module-ESP8266/blob/main/rep_images/Schematics_2.jpg?raw=true)
+
+
+
+
 # ESP8266 Deauther Version 2
 
 <p align="center">
