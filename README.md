@@ -41,6 +41,20 @@
 
 # How to
 
+Precompiled .bin for ESP and firmware for FlipperZero can be found in [latest release](https://github.com/SequoiaSan/FlipperZero-Wifi-ESP8266-Deauther-Module/releases)
+
+[Flash ESP8266 in you web browser](https://sequoiasan.github.io/FlipperZero-Wifi-ESP8266-Deauther-Module/)
+
+or
+
+[How To Flash .bin to ESP](https://github.com/SequoiaSan/Guide-How-To-Upload-bin-to-ESP8266-ESP32)
+
+
+[How To Update FlipperZero firmware](https://www.youtube.com/watch?v=PUn7XJrslQ4) (choose **Install from file**)
+
+
+### Or compile firmwares on your own
+
 Flash [firmware](https://github.com/SequoiaSan/FlipperZero-Wifi-ESP8266-Deauther-Module/tree/FlipperZero-Module-v2/esp8266_deauther) on Wemos D1 Mini
 
 Compile firmware for FlipperZero with new [application](https://github.com/SequoiaSan/FlipperZero-Wifi-ESP8266-Deauther-Module/tree/FlipperZero-Module-v2/FlipperZeroModule/FlipperZero-ESP8266-Deauth-App)
