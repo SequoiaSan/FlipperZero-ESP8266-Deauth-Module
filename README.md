@@ -43,7 +43,7 @@
 
 Precompiled .bin for ESP and firmware for FlipperZero can be found in [latest release](https://github.com/SequoiaSan/FlipperZero-Wifi-ESP8266-Deauther-Module/releases)
 
-[Flash ESP8266 in you web browser](https://sequoiasan.github.io/FlipperZero-Wifi-ESP8266-Deauther-Module/)
+### [Flash ESP8266 in you web browser](https://sequoiasan.github.io/FlipperZero-Wifi-ESP8266-Deauther-Module/)
 
 or
 
