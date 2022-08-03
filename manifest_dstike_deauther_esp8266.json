@@ -1,0 +1,11 @@
+{
+  "name": "WiFi DSTIKE Deauther ESP8266",
+  "version": "v.0.1",
+  "home_assistant_domain": "slim_player",
+  "builds": [
+    {
+      "chipFamily": "ESP8266",
+      "parts": [{ "path": "firmware/esp8266_deauther.ino.d1_mini.bin", "offset": 0 }]
+    }
+  ]
+}
